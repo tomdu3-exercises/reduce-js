@@ -77,5 +77,17 @@ let namesByProfession = teamMembers.reduce((acc, curr) => {
   return acc;
 }, {});
 
+let developerWithMostExperience = teamMembers.reduce((acc, curr) => {
+  let profession = 'Developer';
+  if (curr.profession == profession) {
+    if (acc[1] < curr.yrsExperience) {
+      acc[0] = curr.name;
+      acc[1] = curr.yrsExperience;
+    }
+  }
+  return acc;
+  
+}, ['', 0]);
 console.log(experienceByProfession);
 console.log(namesByProfession);
+console.log(developerWithMostExperience);
